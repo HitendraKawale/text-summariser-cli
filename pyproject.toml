@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "text-summariser-cli"
+version = "0.1.0"
+description = "Multi-format & URL summariser (M1-friendly) using Hugging Face."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Hitendra Kawale" }]
+dependencies = [
+  "transformers>=4.42",
+  "requests",
+  "beautifulsoup4",
+  "lxml",
+  "trafilatura",
+  "pdfplumber",
+  "python-docx",
+]
+
+[project.scripts]
+summarise = "summariser.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

@@ -1,0 +1,19 @@
+name: summariser
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pip
+  - pip:
+      - transformers>=4.42
+      - requests
+      - beautifulsoup4
+      - lxml
+      - trafilatura
+      - pdfplumber
+      - python-docx
+      - pytest
+

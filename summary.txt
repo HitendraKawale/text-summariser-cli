@@ -1,0 +1,1 @@
+ Using Hugging Face (M1-friendly) Text Summariser is a text summariser tool . It supports webpages (`--url`), chunks, chunking, and file output .
