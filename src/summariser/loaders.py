@@ -54,10 +54,18 @@ def read_html_file(path: Path) -> str:
 
 def read_url(url: str) -> str:
     requests = _opt_import("requests", "requests")
-    resp = requests.get(url, timeout=20)
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/117.0 Safari/537.36"
+        )
+    }
+    resp = requests.get(url, timeout=20, headers=headers)
     resp.raise_for_status()
 
-    # Try trafilatura first (better boilerplate removal), fallback to bs4
+    # Try trafilatura first
     try:
         trafilatura = _opt_import("trafilatura", "trafilatura")
         extracted = trafilatura.extract(resp.text, url=url, include_tables=False)
@@ -66,6 +74,7 @@ def read_url(url: str) -> str:
     except ImportError:
         pass
 
+    # Fallback: BeautifulSoup
     bs4 = _opt_import("bs4", "beautifulsoup4")
     soup = bs4.BeautifulSoup(resp.text, "lxml")
     for bad in soup(["script", "style", "noscript"]):
