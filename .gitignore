@@ -1,10 +1,47 @@
+# Byte-compiled / cache files
 __pycache__/
-*.pyc
-.ipynb_checkpoints/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
 .env
 .venv
+*.venv
+env/
+venv/
+ENV/
+
+# OS / editor files
 .DS_Store
-.pytest_cache/
-dist/
+Thumbs.db
+
+# Build / packaging
 build/
+dist/
 *.egg-info/
+.eggs/
+.wheelhouse/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Project outputs
+summary.txt
+*.log
+
+# Hugging Face / Transformers cache
+~/.cache/
+.huggingface/
+transformers_cache/
+
+
+
